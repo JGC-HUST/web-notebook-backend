@@ -11,7 +11,9 @@ module.exports = class extends BaseRest {
 
     async postAction() {
         const model = this.model('user');
-        console.log(this.post('username'));
+        // data fields: username password email
+        let username = this.post('username');
+        let password = this.post('')
     }
 
 };
