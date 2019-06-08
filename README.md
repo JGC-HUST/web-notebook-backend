@@ -26,7 +26,7 @@ pm2 startOrReload pm2.json
 -- user
 CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL UNIQUE,
   `password` varchar(100) NOT NULL,
 	`email` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`)
