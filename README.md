@@ -35,20 +35,22 @@ CREATE TABLE `user` (
 -- cate
 CREATE TABLE `cate` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL UNIQUE,
+  `title` varchar(100) NOT NULL,
   `owner` INT(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `owner_fk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`id`)
+  CONSTRAINT `owner_fk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`id`),
+  CONSTRAINT uc_PersonID UNIQUE (`id`, `title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- article
 CREATE TABLE `article` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL UNIQUE,
+  `title` varchar(100) NOT NULL,
   `content` TEXT NOT NULL,
   `cate` int(10) unsigned NOT NULL,
 	`time` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `cate_fk_1` FOREIGN KEY (`cate`) REFERENCES `cate` (`id`)
+  CONSTRAINT `cate_fk_1` FOREIGN KEY (`cate`) REFERENCES `cate` (`id`),
+  CONSTRAINT uc_PersonID UNIQUE (`id`, `title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```

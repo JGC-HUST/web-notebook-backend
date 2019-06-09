@@ -2,10 +2,6 @@ const Base = require('./base.js');
 
 module.exports = class extends Base {
 
-  indexAction() {
-    return this.display();
-  }
-
   async addAction() {
     const userModel = this.model('user');
     const cateModel = this.model('cate');
@@ -61,6 +57,18 @@ module.exports = class extends Base {
         msg: '分类查询失败'
       })
     }
+  }
+
+  async putAction() {
+
+  }
+
+  async delAction() {
+
+  }
+
+  async getAllAction() {
+
   }
 
 };
