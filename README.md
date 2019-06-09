@@ -31,4 +31,23 @@ CREATE TABLE `user` (
 	`email` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- cate
+CREATE TABLE `cate` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL UNIQUE,
+  `owner` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `owner_fk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- article
+CREATE TABLE `article` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL UNIQUE,
+  `content` TEXT NOT NULL,
+  `cate` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `cate_fk_1` FOREIGN KEY (`cate`) REFERENCES `cate` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
