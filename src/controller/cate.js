@@ -21,13 +21,13 @@ module.exports = class extends Base {
           msg: '分类创建成功'
         })
       } else {
-        this.fail(4000, 'fail', {
+        this.fail(2000, 'fail', {
           code: -1,
           msg: '分类创建失败'
         })
       }
     } catch (error) {
-      this.fail(3000, 'fail', {
+      this.fail(2001, 'fail', {
         code: -1,
         msg: '分类创建失败'
       })
@@ -56,7 +56,7 @@ module.exports = class extends Base {
         cates
       }, 'success');
     } catch (error) {
-      this.fail(3000, 'fail', {
+      this.fail(2002, 'fail', {
         code: -1,
         msg: '分类查询失败'
       })

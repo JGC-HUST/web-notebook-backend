@@ -43,7 +43,7 @@ module.exports = class extends BaseRest {
                 })
             }
         } catch (error) {
-            this.fail(2000, 'fail', {
+            this.fail(1001, 'fail', {
                 code: -1,
                 msg: error.message
             })
@@ -64,13 +64,13 @@ module.exports = class extends BaseRest {
                     msg: '用户创建成功'
                 }, 'success');
             } else {
-                this.fail(1000, 'fail', {
+                this.fail(1002, 'fail', {
                     code: -1,
                     msg: '用户创建失败'
                 })
             }
         } catch (error) {
-            this.fail(2000, 'fail', {
+            this.fail(1003, 'fail', {
                 code: -1,
                 msg: error.message
             })
