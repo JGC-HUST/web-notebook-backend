@@ -12,7 +12,12 @@ module.exports = class extends think.Controller {
     assert(think.isFunction(this.model), 'this.model must be a function');
     this.modelInstance = this.model(this.resource);
   }
-  __before() {}
+  __before() {
+    this.header("Access-Control-Allow-Origin", this.header("origin") || "*");
+    this.header("Access-Control-Allow-Headers", "x-requested-with");
+    this.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS,PUT,DELETE");
+    this.header('Access-Control-Allow-Credentials', true);
+  }
   /**
    * get resource
    * @return {String} [resource name]
